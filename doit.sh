@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/AWS_Simple_Icons_v15.10.2.zip"
+URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/16.2.22_Update/AWS_Simple_Icons_EPS-SVG_v16.2.22.zip"
 
 echo "JUST DO IT!! (waiting for enter keystroke)"
 read
