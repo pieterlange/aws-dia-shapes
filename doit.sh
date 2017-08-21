@@ -1,12 +1,23 @@
 #!/bin/bash
 
-URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/16.2.22_Update/AWS_Simple_Icons_EPS-SVG_v16.2.22.zip"
+export WGET_CMD=`which wget`
+export UNZIP_CMS=`which unzip`
+URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/17.1.19_Update/AWS_Simple_Icons_EPS-SVG_v17.1.19.zip"
 
 echo "JUST DO IT!! (waiting for enter keystroke)"
 read
 
-wget -O icons.zip $URL
-unzip icons.zip
+
+$WGET_CMD -O icons.zip $URL
+ret_code=$?
+if [[ $ret_code -eq 127 ]]; then
+    echo "wget is not installed"
+    exit 1; 
+elif [[ $ret_code -eq 4 ]]; then
+    echo "location unavailable"
+    exit 1;
+fi
+$UNZIP_CMD icons.zip
 
 mkdir svg
 
