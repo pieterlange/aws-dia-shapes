@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export WGET_CMD=`which wget`
-export UNZIP_CMS=`which unzip`
+export UNZIP_CMD=`which unzip`
 URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/17.1.19_Update/AWS_Simple_Icons_EPS-SVG_v17.1.19.zip"
 
 echo "JUST DO IT!! (waiting for enter keystroke)"
