@@ -2,7 +2,7 @@
 
 export WGET_CMD=`which wget`
 export UNZIP_CMD=`which unzip`
-URL="https://media.amazonwebservices.com/AWS-Design/Arch-Center/17.1.19_Update/AWS_Simple_Icons_EPS-SVG_v17.1.19.zip"
+URL="https://d1.awsstatic.com/webteam/architecture-icons/AWS-Architecture-Icons_SVG_20200430.974b253cb3059403544585500365fb828d305321.zip"
 
 echo "JUST DO IT!! (waiting for enter keystroke)"
 read
