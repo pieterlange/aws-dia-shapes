@@ -11,9 +11,6 @@
 _svg_inputs_root := $(abspath ./svg)
 _svg_inputs := $(wildcard $(_svg_inputs_root)/*.svg)
 
-_eps_inputs_root := $(abspath ./eps)
-_eps_inputs := $(wildcard $(_eps_inputs_root)/*.eps)
-
 _outputs_root := $(abspath ./.outputs)
 _shapes_outputs_root := $(_outputs_root)/shapes
 _shapes_sheet_output := $(_outputs_root)/shapes.sheet
@@ -39,23 +36,6 @@ $(patsubst $(_svg_inputs_root)/%.svg, $(_shapes_outputs_root)/%.svg, $(_svg_inpu
 	| sed -E -e '/^$$/d' \
 	| cat >$(@)1
 	mv -T $(@)1 $(@)
-
-#$(patsubst $(_svg_inputs_root)/%.svg, $(_shapes_outputs_root)/%.svg, $(_svg_inputs)) \
-#		: $(_shapes_outputs_root)/%.svg \
-#		: $(_eps_inputs_root)/%.eps makefile
-#	$(info [xx] [make] $(strip $(patsubst $(_outputs_root)/%, %, $(@))))
-#	test ! -e $(@) || rm $(@)
-#	test -e $(@D) || mkdir -p $(@D)
-#	#a# epstopdf $(<) --outfile=$(@).pdf
-#	#a# inkscape --export-plain-svg $(@) $(@).pdf
-#	#b# pstoedit -f plot-svg $(<) $(@)
-#	cat <$(@) \
-#	| tr '\t\n\r' ' ' \
-#	| tr -s ' ' \
-#	| sed -E -e 's!( *)<!\n<!g' -e 's!>( *)!>\n!g' \
-#	| sed -E -e '/^$$/d' \
-#	| cat >$(@)1
-#	mv -T $(@)1 $(@)
 
 $(_outputs_root) : $(patsubst $(_svg_inputs_root)/%.svg, $(_shapes_outputs_root)/%.svg, $(_svg_inputs))
 
@@ -108,9 +88,10 @@ $(_outputs_root) : $(patsubst $(_svg_inputs_root)/%.svg, $(_shapes_outputs_root)
 
 
 $(_shapes_sheet_output) : $(_svg_inputs) makefile
-	$(info [xx] [make] $(strip $(patsubst $(_outputs_root)/%, %, $(@))))
+	$(info [xx] [make AWS dia sheet] $(strip $(patsubst $(_outputs_root)/%, %, $(@))))
 	test ! -e $(@) || rm $(@)
 	test -e $(@D) || mkdir -p $(@D)
+	
 	{ \
 		echo '<?xml version="1.0" encoding="utf-8"?>' ; \
 		echo '' ; \
