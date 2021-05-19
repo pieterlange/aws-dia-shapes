@@ -31,12 +31,12 @@ read
 make
 
 echo "All done"
-echo "Copy .output/shapes.sheet to ~/.dia/sheets/"
-echo "Copy .output/shapes/* to ~/.dia/shapes/"
 echo
-echo "Yesterday you said tomorrow..."
+echo "Copy shapes to user's home?"
 echo "Break here (ctrl-c) to do it manually or press enter to JUST DO IT!"
 read
 
-cp -v .outputs/shapes.sheet ~/.dia/sheets/AWS.sheet
-cp -v .outputs/shapes/* ~/.dia/shapes/
+echo "Copy .output/shapes.sheet to ~/.dia/sheets/"
+echo "Copy .output/shapes/* to ~/.dia/shapes/"
+cp -av .outputs/shapes.sheet ~/.dia/sheets/AWS.sheet
+cp -av .outputs/shapes/* ~/.dia/shapes/
